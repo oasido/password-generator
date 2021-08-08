@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <title>Wachtwoorden.nl - Genereer sterke wachtwoorden</title>
+  </head>
+  <body>
+    <img src="static/cool-background.svg" class="background scaling" />
+    <div class="outer">
+      <div class="middle">
+        <div class="inner">
+          <div class="card">
+            <div class="card-body">
+              <form method="post">
+                <h4>Genereer sterke wachtwoorden</h4>
+                <div class="p-3">
+                  <label for="length" class="form-label">Wachtwoordlengte:</label>&nbsp;<span id="lengthText"></span>
+                  <input type="range" class="form-range" min="8" value="{{length}}" max="100" name="length" id="length" />
+                  <center>
+                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                      <input type="checkbox" class="btn-check" id="btncheck1" name="form_uppercase" autocomplete="off" />
+                      <label class="btn btn-sm btn-outline-primary" for="btncheck1">Uppercase</label>
+
+                      <input type="checkbox" class="btn-check" id="btncheck2" name="form_lowercase" autocomplete="off" />
+                      <label class="btn btn-sm btn-outline-primary" for="btncheck2">Lowercase</label>
+
+                      <input type="checkbox" class="btn-check" id="btncheck3" name="form_symbols" autocomplete="off" />
+                      <label class="btn btn-sm btn-outline-primary" for="btncheck3">Symbols</label>
+
+                      <input type="checkbox" class="btn-check" id="btncheck4" name="form_numbers" autocomplete="off" />
+                      <label class="btn btn-sm btn-outline-primary" for="btncheck4">Numbers</label>
+                    </div>
+                    <button class="btn btn-dark" id="druk-button" type="submit"><strong>Maak een veilig wachtwoord aan!</strong></button>
+                  </center>
+                </div>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Jouw sterke wachtwoord" value="{{password}}" id="wachtwoord" aria-describedby="copy_button" />
+                  <button class="btn btn-outline-secondary" type="button" id="copy_button">Kopiëren</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
